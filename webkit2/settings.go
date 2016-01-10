@@ -46,8 +46,38 @@ func (s *Settings) SetUserAgentWithApplicationDetails(appName, appVersion string
 // SetUserAgent
 //
 // See also: webkit_settings_set_user_agent at
-// http://webkitgtk.org/reference/webkit2gtk/unstable/WebKitSettings.html#webkit-settings-set-user-agent
-
+// http://webkitgtk.org/reference/webkit2gtk/stable/WebKitSettings.html#webkit-settings-set-user-agent
 func (s *Settings) SetUserAgent(ua string) {
 	C.webkit_settings_set_user_agent(s.settings, (*C.gchar)(C.CString(ua)))
+}
+
+// BELOWS COULD ALSO USE #SetProperty, add for T
+// T
+func (s *Settings) SetEnableOfflineWebApplicationCache(v bool) {
+	C.webkit_settings_set_enable_offline_web_application_cache(s.settings, gboolean(v))
+}
+
+// T
+func (s *Settings) SetJavascriptCanOpenWindowsAutomatically(v bool) {
+	C.webkit_settings_set_javascript_can_open_windows_automatically(s.settings, gboolean(v))
+}
+
+// T
+func (s *Settings) SetEnablePrivateBrowsing(v bool) {
+	C.webkit_settings_set_enable_private_browsing(s.settings, gboolean(v))
+}
+
+// T
+func (s *Settings) SetEnableDeveloperExtras(v bool) {
+	C.webkit_settings_set_enable_developer_extras(s.settings, gboolean(v))
+}
+
+// T
+func (s *Settings) SetEnableWebaudio(v bool) {
+	C.webkit_settings_set_enable_webaudio(s.settings, gboolean(v))
+}
+
+// T
+func (s *Settings) SetEnablePageCache(v bool) {
+	C.webkit_settings_set_enable_page_cache(s.settings, gboolean(v))
 }
