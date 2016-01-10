@@ -42,3 +42,12 @@ func (s *Settings) SetAutoLoadImages(autoLoad bool) {
 func (s *Settings) SetUserAgentWithApplicationDetails(appName, appVersion string) {
 	C.webkit_settings_set_user_agent_with_application_details(s.settings, (*C.gchar)(C.CString(appName)), (*C.gchar)(C.CString(appVersion)))
 }
+
+// SetUserAgent
+//
+// See also: webkit_settings_set_user_agent at
+// http://webkitgtk.org/reference/webkit2gtk/unstable/WebKitSettings.html#webkit-settings-set-user-agent
+
+func (s *Settings) SetUserAgent(ua string) {
+	C.webkit_settings_set_user_agent(s.settings, (*C.gchar)(C.CString(ua)))
+}
